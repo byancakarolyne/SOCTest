@@ -25,6 +25,7 @@ public class PesquisaBlogStep {
         navegador = new ChromeDriver();
         wt = new WebDriverWait(navegador,20);
         navegador.get("https://ww2.soc.com.br/blog/");
+        navegador.manage().window().maximize();
     }
 
     @Entao("efetuarei uma pesquisa por {string}")

@@ -23,6 +23,7 @@ public class BlogTest {
         navegador = new ChromeDriver();
         wt = new WebDriverWait(navegador,20);
         navegador.get("https://ww2.soc.com.br/blog/");
+        navegador.manage().window().maximize();
     }
 
     @Ignore
@@ -43,7 +44,7 @@ public class BlogTest {
         Screenshot.tirar(navegador,nomeArquivo );
     }
 
-    @After
+    @Ignore
     public void tearDown() {
 
         navegador.quit();
