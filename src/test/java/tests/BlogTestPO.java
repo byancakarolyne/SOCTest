@@ -2,9 +2,11 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.interactions.Actions;
 
 public class BlogTestPO {
 
@@ -29,7 +31,7 @@ public class BlogTestPO {
         byBotaoCredenciado = By.linkText("Buscar credenciados");
         byBotaoPesquisaCredenciado = By.id("ipt-busca-credenciado-2");
         byFiltroWifi = By.cssSelector("#div-filtro-conveniencias > section > div:nth-child(1) > label > span.nome-filtro");
-        byFiltroLaudo = By.cssSelector("#div-filtro-servicos > section > div:nth-child(4) > label > span.nome-filtro");
+        byFiltroLaudo = By.xpath("//*[@id=\"conteudo-resultados\"]/div[1]/div/div[1]/div/section");
         byBotaoSaibaMais = By.xpath("//*[@id=\"conteudo-resultados\"]/div[1]/div/div[1]/div/section/div[2]/a/button");
         byBotaoEscondeFiltros = By.xpath("//*[@id=\"root\"]/div/button");
     }
@@ -55,8 +57,6 @@ public class BlogTestPO {
         botaoPesquisaCredenciado.sendKeys(crendenciado);
         botaoPesquisaCredenciado.sendKeys(Keys.ENTER);
         wtNavegador.until(ExpectedConditions.elementToBeClickable(byFiltroWifi)).click();
-        wtNavegador.until(ExpectedConditions.elementToBeClickable(byFiltroLaudo)).click();
-        wtNavegador.until(ExpectedConditions.elementToBeClickable(byBotaoEscondeFiltros)).click();
         wtNavegador.until(ExpectedConditions.elementToBeClickable(byBotaoSaibaMais)).click();
     }
 }

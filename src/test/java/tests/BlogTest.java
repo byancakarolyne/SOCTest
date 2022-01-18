@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import suport.Generator;
 import suport.Screenshot;
 
+import java.util.concurrent.TimeUnit;
+
 
 public class BlogTest {
     private WebDriver navegador;
@@ -21,7 +23,7 @@ public class BlogTest {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\byanc\\drivers\\chromedriver.exe");
         navegador = new ChromeDriver();
-        wt = new WebDriverWait(navegador,20);
+        wt = new WebDriverWait(navegador,50);
         navegador.get("https://ww2.soc.com.br/blog/");
         navegador.manage().window().maximize();
     }
@@ -38,13 +40,13 @@ public class BlogTest {
     @Test
     public void testCredenciadoBlog () {
         BlogTestPO btpo = new BlogTestPO(wt);
-        String credenciado = "Santos, SP, Brasil";
+        String credenciado = "Belém, PA, Brasil";
         btpo.credenciado(credenciado);
         String nomeArquivo = diretorio + Generator.dataHoraArquivo() + "_" + nomeDoTeste.getMethodName() + ".png";
         Screenshot.tirar(navegador,nomeArquivo );
     }
 
-    @After
+    @Ignore
     public void tearDown() {
 
         navegador.quit();
