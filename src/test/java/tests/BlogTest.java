@@ -44,7 +44,7 @@ public class BlogTest {
         Screenshot.tirar(navegador,nomeArquivo );
     }
 
-    @Ignore
+    @After
     public void tearDown() {
 
         navegador.quit();
